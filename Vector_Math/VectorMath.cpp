@@ -7,6 +7,109 @@
 //сложение матриц, сложение векторов, умножение матриц,
 //умножение матрицы на вектор, скалярное умножение векторов, 
 //векторное умножение векторов реализовать программно
+void matrix_slozh(int(&matrix_sum)[3][3], int matrix1[3][3], int matrix2[3][3])
+{
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			matrix_sum[i][j] = 0;
+			matrix_sum[i][j] = matrix1[i][j] + matrix2[i][j];
+		}
+	}
+}
+
+void vect_slozh(int(&vector_sum)[1][3], int vector1[1][3], int vector2[1][3])
+{
+	for (int i = 0; i < 3; i++) {
+		vector_sum[0][i] = 0;
+		vector_sum[0][i] = vector1[0][i] + vector2[0][i];
+	}
+
+}
+
+void matrix_umnozh(int(&matrix_sum)[3][3], int matrix1[3][3], int matrix2[3][3])
+{
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			matrix_sum[i][j] = 0;
+
+			for (int k = 0; k < 3; k++)
+				matrix_sum[i][j] = matrix_sum[i][j] + matrix1[i][k] * matrix2[k][j];
+
+		}
+	}
+}
+
+void matrix_x_vect(int(&matrix_sum)[3][3], int matrix1[3][3], int vector1[1][3])
+{
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			matrix_sum[i][j] = 0;
+		}
+	}
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			matrix_sum[i][0] = matrix_sum[i][0] + matrix1[i][j] * vector1[0][j];
+		}
+	}
+}
+
+void vect_skal(int &otvet, int vector1[1][3], int vector2[1][3])
+{
+	otvet = 0;
+	for (int i = 0; i < 3; i++) {
+		otvet = otvet + vector1[0][i] * vector2[0][i];
+	}
+}
+void vect_vect(int(&matrix_vect)[3][3], int vector1[1][3], int vector2[1][3], int(&vector_sum)[1][3])
+{
+	for (int i = 0; i < 3; i++) {
+		if (i == 0) {
+			for (int j = 0; j < 3; j++) {
+				matrix_vect[i][j] = 1;
+			}
+
+		}
+		else {
+			if (i == 1) {
+				for (int j = 0; j < 3; j++) {
+					matrix_vect[i][j] = vector1[0][j];
+				}
+			}
+			else {
+				for (int j = 0; j < 3; j++) {
+					matrix_vect[i][j] = vector2[0][j];
+				}
+			}
+		}
+	}
+
+	for (int i = 0; i < 3; i++) {
+		vector_sum[0][i] = 0;
+	}
+	for (int i = 2; i > -1; i--) {
+		(i == 0) ?
+			(vector_sum[0][i] = matrix_vect[1][(i + 1) / 3] * matrix_vect[2][i + 1] - matrix_vect[1][i + 1] * matrix_vect[2][(i + 1) / 3])
+			:
+			(vector_sum[0][i] = matrix_vect[1][(i + 1) / 3] * matrix_vect[2][2] - matrix_vect[1][2] * matrix_vect[2][(i + 1) / 3]);
+	}
+}
+void vyvod_mat(int matrix_sum[3][3])
+{
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++)
+		{
+			std::cout << matrix_sum[i][j] << " \t";
+		}
+		std::cout << std::endl;
+	}
+}
+
+void vyvod_mas(int vector1[1][3])
+{
+	for (int i = 0; i < 3; i++) {
+		std::cout << vector1[0][i] << " \t";
+	}
+}
 
 int main()
 {
