@@ -7,6 +7,10 @@
 //сложение матриц, сложение векторов, умножение матриц,
 //умножение матрицы на вектор, скалярное умножение векторов, 
 //векторное умножение векторов реализовать программно
+
+
+
+
 void matrix_slozh(int(&matrix_sum)[3][3], int matrix1[3][3], int matrix2[3][3])
 {
 	for (int i = 0; i < 3; i++) {
@@ -16,6 +20,10 @@ void matrix_slozh(int(&matrix_sum)[3][3], int matrix1[3][3], int matrix2[3][3])
 		}
 	}
 }
+
+
+
+
 
 void vect_slozh(int(&vector_sum)[1][3], int vector1[1][3], int vector2[1][3])
 {
@@ -102,13 +110,15 @@ void vyvod_mat(int matrix_sum[3][3])
 		}
 		std::cout << std::endl;
 	}
+	std::cout << std::endl;
 }
 
-void vyvod_mas(int vector1[1][3])
+void vyvod_vect(int vector1[1][3])
 {
 	for (int i = 0; i < 3; i++) {
 		std::cout << vector1[0][i] << " \t";
 	}
+	std::cout << std::endl;
 }
 
 int main()
@@ -252,6 +262,36 @@ int main()
 	for (int i = 0; i < 3; i++) {
 		std::cout << vector_sum[0][i] << std::endl; //вывод матрицы
 	}
+	std::cout << std::endl;
+
+
+	
+	
+	matrix_slozh(matrix_sum, matrix1, matrix2);
+
+	vyvod_mat(matrix_sum);
+
+	vect_slozh(vector_sum, vector1, vector2);
+
+	vyvod_vect(vector_sum);
+
+	matrix_umnozh(matrix_sum, matrix1, matrix2);
+
+	vyvod_mat(matrix_sum);
+
+	matrix_x_vect(matrix_sum, matrix1, vector1);
+
+    vyvod_mat(matrix_sum);
+
+	vect_skal(otvet, vector1, vector2);
+
+	std::cout << otvet << std::endl << std::endl;
+
+	vect_vect(matrix_vect,vector1,vector2,vector_sum);
+
+	vyvod_vect(vector_sum);
+
+
 	getchar();
 	return 0;
 }
