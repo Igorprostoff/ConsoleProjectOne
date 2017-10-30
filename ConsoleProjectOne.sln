@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab1", "ConsoleProjectOne\ConsoleProjectOne.vcxproj", "{4DC17719-6686-4F09-9DD3-625CA79BC5AA}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vector_Math", "Vector_Math\Vector_Math.vcxproj", "{4BEFBD8F-9C10-4AE0-92CD-EA7757AE92AD}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab4", "Lab4\Lab4.vcxproj", "{80AF6361-FA3F-470A-8A9D-7A5E5A8F54A6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Funct", "Funct\Funct.vcxproj", "{D07871A6-A8F3-404D-98BB-D009723D42A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,14 @@ Global
 		{80AF6361-FA3F-470A-8A9D-7A5E5A8F54A6}.Release|x64.Build.0 = Release|x64
 		{80AF6361-FA3F-470A-8A9D-7A5E5A8F54A6}.Release|x86.ActiveCfg = Release|Win32
 		{80AF6361-FA3F-470A-8A9D-7A5E5A8F54A6}.Release|x86.Build.0 = Release|Win32
+		{D07871A6-A8F3-404D-98BB-D009723D42A6}.Debug|x64.ActiveCfg = Debug|x64
+		{D07871A6-A8F3-404D-98BB-D009723D42A6}.Debug|x64.Build.0 = Debug|x64
+		{D07871A6-A8F3-404D-98BB-D009723D42A6}.Debug|x86.ActiveCfg = Debug|Win32
+		{D07871A6-A8F3-404D-98BB-D009723D42A6}.Debug|x86.Build.0 = Debug|Win32
+		{D07871A6-A8F3-404D-98BB-D009723D42A6}.Release|x64.ActiveCfg = Release|x64
+		{D07871A6-A8F3-404D-98BB-D009723D42A6}.Release|x64.Build.0 = Release|x64
+		{D07871A6-A8F3-404D-98BB-D009723D42A6}.Release|x86.ActiveCfg = Release|Win32
+		{D07871A6-A8F3-404D-98BB-D009723D42A6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
