@@ -14,6 +14,7 @@ using namespace std;
 //	}
 //	cout << std::endl;
 //}
+
 void Vector::vyvod_vect(int** vectorDyn, int g1)
 {
 	for (int i = 0; i < g1; i++) {
@@ -157,7 +158,9 @@ void Vector::vect_vect(int **& matrixVectDyn, int **vector1, int g1, int ** vect
 }
 Vector::Vector()
 {
+	
 	cin >> g2;
+
 	for (int i = 0; i < 1; i++)
 	{
 		vectDyn[i] = new int[g2];

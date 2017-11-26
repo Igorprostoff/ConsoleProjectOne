@@ -12,7 +12,7 @@ private:
 		int l2;
 
 		int ** matrixDyn = new int *[l1];
-
+		int ** matrixDyn1;
 public: 
 		Matrix();
 

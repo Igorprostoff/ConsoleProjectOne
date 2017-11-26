@@ -161,7 +161,7 @@ Matrix::Matrix()
 {
 	cin >> l1;
 	cin >> l2;
-
+	
 	for (int i = 0; i < l1; i++)
 	{
 		matrixDyn[i] = new int[l2];
@@ -180,16 +180,17 @@ Matrix::Matrix(int **matrix1Dyn, int l3, int l4)
 {
 	l1 = l3;
 	l2 = l4;
+	matrixDyn1= new int *[l1];
 	for (int i = 0; i <l3 ; i++)
 	{
-		matrixDyn[i] = new int[l4];
+		matrixDyn1[i] = new int[l4];
 
 	}
 	
 	for (int i=0; i<l3;i++)
 	{
 		for (int j = 0; j < l4; j++) {
-			matrixDyn[i][j] = matrix1Dyn[i][j];
+			matrixDyn1[i][j] = matrix1Dyn[i][j];
 		}
 	}
 }
