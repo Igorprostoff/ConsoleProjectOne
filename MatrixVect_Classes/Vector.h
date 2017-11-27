@@ -1,6 +1,8 @@
 #pragma once
 class Vector
 {
+private:
+
 	int g2;
 	int ** vectDyn = new int *[1];
 	
@@ -9,7 +11,7 @@ public:
 
 	Vector(int **Vector1, int g1);
 
-	/*void vyvod_mat(int ** matrixDyn, int l1, int l2);*/
+	void vyvod_mat(int ** matrixDyn, int l1, int l2);
 
 	void vyvod_vect(int** vectorDyn, int g1);
 

@@ -3,17 +3,17 @@
 #include <iostream>
 using namespace std;
 
-//void Vector::vyvod_mat(int ** matrixDyn, int l1, int l2)
-//{
-//	for (int i = 0; i < l1; i++) {
-//		for (int j = 0; j < l2; j++)
-//		{
-//			cout << matrixDyn[i][j] << " \t";
-//		}
-//		cout << std::endl;
-//	}
-//	cout << std::endl;
-//}
+void Vector::vyvod_mat(int ** matrixDyn, int l1, int l2)
+{
+	for (int i = 0; i < l1; i++) {
+		for (int j = 0; j < l2; j++)
+		{
+			cout << matrixDyn[i][j] << " \t";
+		}
+		cout << std::endl;
+	}
+	cout << std::endl;
+}
 
 void Vector::vyvod_vect(int** vectorDyn, int g1)
 {
