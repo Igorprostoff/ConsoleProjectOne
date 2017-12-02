@@ -12,9 +12,9 @@ void WeaponClass1::shot()
 {
 	return;
 }
-WeaponClass1::WeaponClass1()
-{
-}
+//WeaponClass1::WeaponClass1()
+//{
+//}
 
 
 WeaponClass1::~WeaponClass1()
