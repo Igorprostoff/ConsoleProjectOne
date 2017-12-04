@@ -35,47 +35,47 @@ void Vector::vect_vect(Vector vect1, Vector Vect2, Vector VectRes)
 		
 
 
-Vector::Vector()
-{cout<<"INHERITED CLASS CONSTRUCTOR STARTED"<<endl;
-	
-	cout << "enter vector height ";
-	
-	cin >> l2;
-	
-	vectDyn = new int *[l1];
+//Vector::Vector()
+//{cout<<"INHERITED CLASS CONSTRUCTOR STARTED"<<endl;
+//	
+//	cout << "enter vector height ";
+//	
+//	cin >> l2;
+//	
+//	vectDyn = new int *[l1];
+//
+//	for (int i = 0; i < l1; i++)
+//	{
+//		vectDyn[i] = new int[l2];
+//
+//	}
+//
+//	for (int i = 0; i < l1; i++) {
+//		for (int j = 0; j < l2; j++)
+//		{
+//			vectDyn[i][j] = 2;
+//		}
+//	}
+//}
 
-	for (int i = 0; i < l1; i++)
-	{
-		vectDyn[i] = new int[l2];
 
-	}
-
-	for (int i = 0; i < l1; i++) {
-		for (int j = 0; j < l2; j++)
-		{
-			vectDyn[i][j] = 2;
-		}
-	}
-}
-
-
-Vector::Vector(int **Vector1, int g1)
-{
-	
-	vectDyn = new int *[l1];
-	for (int i = 0; i <1; i++)
-	{
-		vectDyn[i] = new int[g1];
-
-	}
-
-	for (int i = 0; i<1; i++)
-	{
-		for (int j = 0; j < g1; j++) {
-			vectDyn[i][j] = Vector1[i][j];
-		}
-	}
-}
+//Vector::Vector(int **Vector1, int g1)
+//{
+//	
+//	vectDyn = new int *[l1];
+//	for (int i = 0; i <1; i++)
+//	{
+//		vectDyn[i] = new int[g1];
+//
+//	}
+//
+//	for (int i = 0; i<1; i++)
+//	{
+//		for (int j = 0; j < g1; j++) {
+//			vectDyn[i][j] = Vector1[i][j];
+//		}
+//	}
+//}
 
 Vector::~Vector()
 {

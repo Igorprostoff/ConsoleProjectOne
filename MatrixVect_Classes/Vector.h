@@ -12,9 +12,9 @@ private:
 	
 public:
 
-	Vector(int **Vector1, int g1);
+	//Vector(int **Vector1, int g1);
 
-	Vector();
+	//Vector();
 
 
 
