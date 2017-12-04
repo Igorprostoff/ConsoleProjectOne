@@ -39,8 +39,11 @@ Vector::Vector()
 {cout<<"INHERITED CLASS CONSTRUCTOR STARTED"<<endl;
 	
 	cout << "enter vector height ";
+	
 	cin >> l2;
+	
 	vectDyn = new int *[l1];
+
 	for (int i = 0; i < l1; i++)
 	{
 		vectDyn[i] = new int[l2];
