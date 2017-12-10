@@ -29,7 +29,7 @@ void Vector::vect_vect(Vector vect1, Vector Vect2, Vector VectRes)
 		}
 		else { cout <<"Uncountable pair of vectors" << endl; }
 	}
-	vyvod_mat(VectRes);
+//	vyvod_mat(VectRes);
 }
 
 		
