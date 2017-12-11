@@ -13,9 +13,10 @@ private:
 	int ** matrixDyn;
 		
 public: 
-	
+	int ll1 = l1;
+	int ll2 = l2;
 		Matrix(int **matrix1Dyn, int l3, int l4);
-
+		Matrix(int l1, int l2);
 		Matrix();
 		void vyvod_mat(Matrix Matr);
 		

@@ -106,19 +106,18 @@ void Matrix::matrix_umnozh(Matrix Matr1, Matrix Matr2, Matrix & Matr3)
 	}
 
 	if ((l3 == 1) && (l5 == 1)) {
-		int ** vectDyn = new int *[1];
-		for (int i = 0; i < 1; i++)
-		{
-			vectDyn[i] = new int[1];
-
+		int * vectDyn = new int [Matr2.l2];
+		for (int i = 0; i < l2; i++) {
+			vectDyn[i] = Matr2.matrixDyn[0][i];
 		}
+
 		int g1 = l3;
 		int g2 = l5;
 		if (g1 == g2) {
 			int	otvet = 0;
 			for (int i = 0; i < g1; i++) {
 
-				otvet = otvet + Matr1.matrixDyn[0][i] * Matr1.matrixDyn[0][i];
+				otvet = otvet + Matr1.matrixDyn[0][i] * vectDyn[i];
 			}
 			
 			
@@ -130,8 +129,10 @@ void Matrix::matrix_umnozh(Matrix Matr1, Matrix Matr2, Matrix & Matr3)
 				}
 			}*/
 			Matr3.matrixDyn[0][0] = otvet;
-			Matr3.matrixDyn[0][1] = NAN; 
-			Matr3.matrixDyn[0][2] = NAN;
+			for (int i = 1; i < Matr3.l2; i++) 
+			{
+				Matr3.matrixDyn[0][i] = 0;
+			}
 		}
 	}
 
@@ -180,7 +181,6 @@ Matrix::Matrix(int **matrix1Dyn, int l3, int l4)
 		}
 	}
 }
-
 
 
 Matrix::~Matrix()
