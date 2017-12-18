@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab1", "ConsoleProjectOne\ConsoleProjectOne.vcxproj", "{4DC17719-6686-4F09-9DD3-625CA79BC5AA}"
 EndProject
@@ -38,6 +38,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Templates", "Templates\Templates.vcxproj", "{8E4223DC-00F7-45A5-846F-D6B1BCB3BB8E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Strings_Files", "Strings_Files\Strings_Files.vcxproj", "{D8195C55-C9DC-4F4B-9B9F-3C2F213A1732}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Crypto", "Crypto\Crypto.vcxproj", "{B9BB8AB0-4245-41B6-BE1B-2A6348CAC6DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -183,6 +185,14 @@ Global
 		{D8195C55-C9DC-4F4B-9B9F-3C2F213A1732}.Release|x64.Build.0 = Release|x64
 		{D8195C55-C9DC-4F4B-9B9F-3C2F213A1732}.Release|x86.ActiveCfg = Release|Win32
 		{D8195C55-C9DC-4F4B-9B9F-3C2F213A1732}.Release|x86.Build.0 = Release|Win32
+		{B9BB8AB0-4245-41B6-BE1B-2A6348CAC6DA}.Debug|x64.ActiveCfg = Debug|x64
+		{B9BB8AB0-4245-41B6-BE1B-2A6348CAC6DA}.Debug|x64.Build.0 = Debug|x64
+		{B9BB8AB0-4245-41B6-BE1B-2A6348CAC6DA}.Debug|x86.ActiveCfg = Debug|Win32
+		{B9BB8AB0-4245-41B6-BE1B-2A6348CAC6DA}.Debug|x86.Build.0 = Debug|Win32
+		{B9BB8AB0-4245-41B6-BE1B-2A6348CAC6DA}.Release|x64.ActiveCfg = Release|x64
+		{B9BB8AB0-4245-41B6-BE1B-2A6348CAC6DA}.Release|x64.Build.0 = Release|x64
+		{B9BB8AB0-4245-41B6-BE1B-2A6348CAC6DA}.Release|x86.ActiveCfg = Release|Win32
+		{B9BB8AB0-4245-41B6-BE1B-2A6348CAC6DA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
