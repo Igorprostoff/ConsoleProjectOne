@@ -11,13 +11,6 @@ private:
 	int ** vectDyn;
 	
 public:
-
-	//Vector(int **Vector1, int g1);
-
-	//Vector();
-
-
-
 	void vect_vect(Vector vect1, Vector Vect2, Vector VectRes);
 
 	~Vector();

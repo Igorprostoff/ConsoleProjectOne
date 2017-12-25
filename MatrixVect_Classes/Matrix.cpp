@@ -41,9 +41,9 @@ void Matrix::matrix_slozh(Matrix Matr1, Matrix Matr2, Matrix & Matr3)
 
 			}
 		}
-		//vyvod_mat(Matr3);
+		
 	}
-//	else { cout << "Sum cant be found"; }
+
 }
 
 void Matrix::matrix_vych(Matrix Matr1, Matrix Matr2, Matrix & Matr3)
@@ -83,19 +83,21 @@ void Matrix::matrix_umnozh(Matrix Matr1, Matrix Matr2, Matrix & Matr3)
 
 		int l6 = Matr2.l2;
 		
+
 	if ((l3 == l6) && (l3 != 1) && (l5 !=1)) 
 	{
+		Matrix Otv(Matr1.l1, Matr2.l2);
 		
 		for (int i = 0; i < l3; i++) 
 		{
 			for (int j = 0; j < l6; j++)
 			{
-				Matr3.matrixDyn[i][j] = 0;
+				Otv.matrixDyn[i][j] = 0;
 
 				for (int k = 0; k < l5; k++) 
 				{
 
-					Matr3.matrixDyn[i][j] += (Matr1.matrixDyn[i][k] * Matr2.matrixDyn[k][j]);
+					Otv.matrixDyn[i][j] += (Matr1.matrixDyn[i][k] * Matr2.matrixDyn[k][j]);
 
 				
 				}
@@ -104,7 +106,11 @@ void Matrix::matrix_umnozh(Matrix Matr1, Matrix Matr2, Matrix & Matr3)
 		}
 	}
 
-	if ((l3 == 1) && (l5 == 1)) {
+	if ((l3 == 1) && (l5 == 1)) 
+	{
+
+		Matrix Otv(1, 1);
+
 		int * vectDyn = new int [Matr2.l2];
 		for (int i = 0; i < l2; i++) {
 			vectDyn[i] = Matr2.matrixDyn[0][i];
@@ -118,10 +124,10 @@ void Matrix::matrix_umnozh(Matrix Matr1, Matrix Matr2, Matrix & Matr3)
 
 				otvet = otvet + Matr1.matrixDyn[0][i] * vectDyn[i];
 			}
-			Matr3.matrixDyn[0][0] = otvet;
+			Otv.matrixDyn[0][0] = otvet;
 			for (int i = 1; i < Matr3.l2; i++) 
 			{
-				Matr3.matrixDyn[0][i] = 0;
+				Otv.matrixDyn[0][i] = 0;
 			}
 		}
 	}
@@ -151,6 +157,22 @@ Matrix::Matrix()
 	}
 }
 
+Matrix::Matrix(int l1, int l2)
+{
+	matrixDyn = new int *[l1];
+	for (int i = 0; i < l1; i++)
+	{
+		matrixDyn[i] = new int[l2];
+
+	}
+
+	for (int i = 0; i < l1; i++) {
+		for (int j = 0; j < l2; j++)
+		{
+			matrixDyn[i][j] = 0;
+		}
+	}
+}
 Matrix::Matrix(int **matrix1Dyn, int l3, int l4) 
 {
 	l1 = l3;
