@@ -177,7 +177,7 @@ Matrix::Matrix(int **matrix1Dyn, int l3, int l4)
 
 Matrix::~Matrix()
 {
-
+	cout << "Detruct";
 }
 
 
