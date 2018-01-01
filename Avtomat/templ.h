@@ -19,7 +19,7 @@ public:
 	void slozhenie(Matriz <T> obj1, Matriz <T> obj2, Matriz<T> obj3);
 	void vychitanie(Matriz <T> obj1, Matriz <T> obj2, Matriz <T> obj3);
 	void vyvod(Matriz <T> obj3);
-	friend ostream &operator<< (ostream &os, const Matriz<T> &rhs);
+template <typename T>friend ostream &operator<< (ostream &os, const Matriz<T> &rhs);
 private:
 	int l1;
 	int l2;
@@ -219,8 +219,8 @@ Matriz <T> operator * (Matriz <T> lhs,
 }
 
 template <typename T>
-ostream &operator<<(ostream &os, const Matriz<T>& rhs)
+ostream &operator <<(ostream &os,  Matriz<T>& rhs)
 {
-	rhs.vyvod;
+	rhs.vyvod(rhs);
 	return os;
 }
