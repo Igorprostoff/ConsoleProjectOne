@@ -2,6 +2,10 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <initializer_list>
+#include <string>
+#include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -67,7 +71,7 @@ Matriz<T>::Matriz(T lll1, T lll2)
 	for (int i = 0; i < l1; i++) {
 		for (int j = 0; j < l2; j++)
 		{
-			A[i][j] = 2;
+			A[i][j] = 0;
 		}
 	}
 }
@@ -166,7 +170,7 @@ void Matriz<T>::vychitanie(Matriz<T>  obj1, Matriz <T> obj2, Matriz<T> obj3)
 }
 
 template <typename T>
-void Matriz<T>::vyvod(Matriz <T> obj3)
+void Matriz<T>::vyvod(const Matriz <T> obj3)
 {
 	cout << endl;
 	int k1 = obj3.l1;
@@ -191,6 +195,10 @@ Matriz <T> operator + (Matriz <T> lhs,
 	result.slozhenie(lhs, rhs, result);
 	return result;
 	}
+	else {
+		Matriz <T> result(1, 1);
+		return result;
+	}
 	
 }
 
@@ -202,6 +210,10 @@ Matriz <T> operator - (Matriz <T> lhs,
 	{
 		Matriz <T> result(lhs.ll1, lhs.ll2);
 		result.vychitanie(lhs, rhs, result);
+		return result;
+	}
+	else {
+		Matriz <T> result(1, 1);
 		return result;
 	}
 }
@@ -216,10 +228,14 @@ Matriz <T> operator * (Matriz <T> lhs,
 		result.umnozhenie(lhs, rhs, result);
 		return result;
 	}
+	else {
+		Matriz <T> result(1, 1);
+		return result;
+	}
 }
 
 template <typename T>
-ostream &operator <<(ostream &os,  Matriz<T>& rhs)
+ostream &operator <<(ostream &os, Matriz<T>& rhs)
 {
 	rhs.vyvod(rhs);
 	return os;
