@@ -2,28 +2,32 @@
 
 #include "stdafx.h"
 #include <iostream>
-#include <initializer_list>
-#include <string>
-#include <sstream>
-#include <fstream>
+
 
 using namespace std;
 
-template <class T> class Matriz
+template <class T> class Matrix
 {
 public:
-	int ** A;
+	T ** matrixDyn;
 	int ll1;
 	int ll2;
-	~Matriz();
-	Matriz();
-	Matriz(T l1, T l2);
-	Matriz(T **A, T l3, T l4);
-	void umnozhenie(Matriz <T> obj1, Matriz <T> obj2, Matriz<T>obj3);
-	void slozhenie(Matriz <T> obj1, Matriz <T> obj2, Matriz<T> obj3);
-	void vychitanie(Matriz <T> obj1, Matriz <T> obj2, Matriz <T> obj3);
-	void vyvod(Matriz <T> obj3);
-template <typename T>friend ostream &operator<< (ostream &os, const Matriz<T> &rhs);
+	~Matrix();
+	Matrix();
+	Matrix(int r1, int r2);
+	Matrix(T **A,int l3,int l4);
+	void matrix_umnozh(Matrix <T> matrix1, Matrix <T> matrix2, Matrix<T>matrix3);
+	void matrix_slozh(Matrix <T> matrix1, Matrix <T> matrix2, Matrix<T> matrix3);
+	void matrix_vych(Matrix <T> matrix1, Matrix <T> matrix2, Matrix <T> matrix3);
+	void vyvod_matr(Matrix <T> matrix3);
+template <typename T>friend ostream &operator<< (ostream &os, const Matrix<T> &rhs);
+
+
+T* operator[](int elem)
+{
+	return matrixDyn[elem];
+}
+
 private:
 	int l1;
 	int l2;
@@ -31,7 +35,7 @@ private:
 };
 
 template <typename T>
-Matriz<T>::Matriz()
+Matrix<T>::Matrix()
 {
 	cout << "enter matrix length ";
 	cin >> l1;
@@ -39,44 +43,47 @@ Matriz<T>::Matriz()
 	cout << "enter matrix height ";
 	cin >> l2;
 	ll2 = l2;
-	A = new int *[l1];
+
+	matrixDyn = new T *[l1];
+
 	for (int i = 0; i < l1; i++)
 	{
-		A[i] = new int[l2];
+		matrixDyn[i] = new T [l2];
 
 	}
 
 	for (int i = 0; i < l1; i++) {
 		for (int j = 0; j < l2; j++)
 		{
-			A[i][j] = 2;
+			matrixDyn[i][j] = 0;
 		}
 	}
 }
 
 template <typename T>
-Matriz<T>::Matriz(T lll1, T lll2)
+Matrix<T>::Matrix(int r1, int r2)
 {
-	l1 = lll1;
+	l1 = r1;
 	ll1 = l1;
-	l2 = lll2;
+	l2 = r2;
 	ll2 = l2;
-	A = new int *[l1];
+	matrixDyn = new T *[l1];
 	for (int i = 0; i < l1; i++)
 	{
-		A[i] = new int[l2];
+		matrixDyn[i] = new T[l2];
 
 	}
 
 	for (int i = 0; i < l1; i++) {
 		for (int j = 0; j < l2; j++)
 		{
-			A[i][j] = 0;
+			matrixDyn[i][j] = 0;
 		}
 	}
 }
+
 template <typename T>
-Matriz<T>::Matriz(T **A1, T l3, T l4)
+Matrix<T>::Matrix(T **matrixDyn1, int l3, int l4)
 {
 	l3 = l1;
 	ll1 = l1;
@@ -85,30 +92,30 @@ Matriz<T>::Matriz(T **A1, T l3, T l4)
 	A = new int *[l1];
 	for (int i = 0; i <l1; i++)
 	{
-		A[i] = new int[l2];
+		matrixDyn[i] = new int[l2];
 
 	}
 
 	for (int i = 0; i<l1; i++)
 	{
 		for (int j = 0; j < l2; j++) {
-			A[i][j] = A1[i][j];
+			matrixDyn[i][j] = matrixDyn1[i][j];
 		}
 	}
 }
 
 template <typename T>
-Matriz<T>::~Matriz()
+Matrix<T>::~Matrix()
 {
 }
 
 template <typename T>
-void Matriz<T>::umnozhenie(Matriz <T> obj1, Matriz <T> obj2, Matriz<T> obj3)
+void Matrix<T>::matrix_umnozh(Matrix <T> matrix1, Matrix <T> matrix2, Matrix<T> matrix3)
 	{
-	int l3 = obj1.l1;
-	int l4 = obj1.l2;
-	int l5 = obj2.l1;
-	int l6 = obj2.l2;
+	int l3 = matrix1.l1;
+	int l4 = matrix1.l2;
+	int l5 = matrix2.l1;
+	int l6 = matrix2.l2;
 
 		int l1 = l3;
 		int l2 = l4;
@@ -116,9 +123,9 @@ void Matriz<T>::umnozhenie(Matriz <T> obj1, Matriz <T> obj2, Matriz<T> obj3)
 		{
 			for (int j = 0; j < l1; j++)
 			{
-				obj3.A[i][j] = 0;
+				matrix3.matrixDyn[i][j] = 0;
 				for (int k = 0; k < l4; k++)
-					obj3.A[i][j] = obj3.A[i][j] + obj1.A[i][k] * obj2.A[k][j];
+					matrix3.matrixDyn[i][j] = matrix3.matrixDyn[i][j] + matrix1.matrixDyn[i][k] * matrix2.matrixDyn[k][j];
 			}
 		}
 
@@ -126,13 +133,13 @@ void Matriz<T>::umnozhenie(Matriz <T> obj1, Matriz <T> obj2, Matriz<T> obj3)
 
 
 template <typename T>
-void Matriz<T>::slozhenie(Matriz <T> obj1, Matriz <T> obj2, Matriz<T> obj3)
+void Matrix<T>::matrix_slozh(Matrix <T> matrix1, Matrix <T> matrix2, Matrix<T> matrix3)
 {
 
-	int l3 = obj1.l1;
-	int l5 = obj2.l1;
-	int l4 = obj1.l2;
-	int l6 = obj2.l2;
+	int l3 = matrix1.l1;
+	int l5 = matrix2.l1;
+	int l4 = matrix1.l2;
+	int l6 = matrix2.l2;
 
 		int l1 = l3;
 		int l2 = l4;
@@ -140,21 +147,21 @@ void Matriz<T>::slozhenie(Matriz <T> obj1, Matriz <T> obj2, Matriz<T> obj3)
 		{
 			for (int j = 0; j < l2; j++)
 			{
-				obj3.A[i][j] = 0;
+				matrix3.matrixDyn[i][j] = 0;
 
-				obj3.A[i][j] = obj1.A[i][j] + obj2.A[i][j];
+				matrix3.matrixDyn[i][j] = matrix1.matrixDyn[i][j] + matrix2.matrixDyn[i][j];
 			}
 		}
 }
 
 template <typename T>
-void Matriz<T>::vychitanie(Matriz<T>  obj1, Matriz <T> obj2, Matriz<T> obj3)
+void Matrix<T>::matrix_vych(Matrix<T>  matrix1, Matrix <T> matrix2, Matrix<T> matrix3)
 {
 	
-	int l3 = obj1.l1;
-	int l5 = obj2.l1;
-	int l4 = obj1.l2;
-	int l6 = obj2.l2;
+	int l3 = matrix1.l1;
+	int l5 = matrix2.l1;
+	int l4 = matrix1.l2;
+	int l6 = matrix2.l2;
 
 		int l1 = l3;
 		int l2 = l4;
@@ -162,23 +169,23 @@ void Matriz<T>::vychitanie(Matriz<T>  obj1, Matriz <T> obj2, Matriz<T> obj3)
 		{
 			for (int j = 0; j < l2; j++)
 			{
-				obj3.A[i][j] = 0;
+				matrix3.matrixDyn[i][j] = 0;
 
-				obj3.A[i][j] = obj1.A[i][j] - obj2.A[i][j];
+				matrix3.matrixDyn[i][j] = matrix1.matrixDyn[i][j] - matrix2.matrixDyn[i][j];
 			}
 		}
 }
 
 template <typename T>
-void Matriz<T>::vyvod(const Matriz <T> obj3)
+void Matrix<T>::vyvod_matr( Matrix <T> matrix3)
 {
 	cout << endl;
-	int k1 = obj3.l1;
-	int k2 = obj3.l2;
+	int k1 = matrix3.l1;
+	int k2 = matrix3.l2;
 	for (int i = 0; i < k1; i++) {
 		for (int j = 0; j < k2; j++)
 		{
-			cout << obj3.A[i][j] << " \t";
+			cout << matrix3.matrixDyn[i][j] << " \t";
 		}
 		cout << std::endl;
 	}
@@ -186,57 +193,58 @@ void Matriz<T>::vyvod(const Matriz <T> obj3)
 }
 
 template <typename T>
-Matriz <T> operator + (Matriz <T> lhs,
-	Matriz <T> rhs)
+Matrix <T> operator + (Matrix <T> lhs,
+	Matrix <T> rhs)
 {
 	if ((lhs.ll1==rhs.ll1)&&(lhs.ll2==rhs.ll2))
 	{
-	Matriz <T> result(lhs.ll1, rhs.ll2);
-	result.slozhenie(lhs, rhs, result);
+	Matrix <T> result(lhs.ll1, rhs.ll2);
+	result.matrix_slozh(lhs, rhs, result);
 	return result;
 	}
 	else {
-		Matriz <T> result(1, 1);
+		Matrix <T> result(1, 1);
 		return result;
 	}
 	
 }
 
 template <typename T>
-Matriz <T> operator - (Matriz <T> lhs,
-	Matriz <T> rhs)
+Matrix <T> operator - (Matrix <T> lhs,
+	Matrix <T> rhs)
 {
 	if ((lhs.ll1 == rhs.ll1) && (lhs.ll2 == rhs.ll2))
 	{
-		Matriz <T> result(lhs.ll1, lhs.ll2);
-		result.vychitanie(lhs, rhs, result);
+		Matrix <T> result(lhs.ll1, lhs.ll2);
+		result.matrix_vych(lhs, rhs, result);
 		return result;
 	}
 	else {
-		Matriz <T> result(1, 1);
+		Matrix <T> result(1, 1);
 		return result;
 	}
 }
 
 template <typename T>
-Matriz <T> operator * (Matriz <T> lhs,
-	Matriz <T> rhs)
+Matrix <T> operator * (Matrix <T> lhs,
+	Matrix <T> rhs)
 {
 	if (lhs.ll1 == rhs.ll2)
 	{
-		Matriz <T> result(lhs.ll1, rhs.ll2);
-		result.umnozhenie(lhs, rhs, result);
+		Matrix <T> result(lhs.ll1, rhs.ll2);
+		result.matrix_umnozh(lhs, rhs, result);
 		return result;
 	}
 	else {
-		Matriz <T> result(1, 1);
+		Matrix <T> result(1, 1);
 		return result;
 	}
 }
 
 template <typename T>
-ostream &operator <<(ostream &os, Matriz<T>& rhs)
+ostream &operator <<(ostream &os, Matrix<T>& rhs)
 {
-	rhs.vyvod(rhs);
+	rhs.vyvod_matr(rhs);
 	return os;
 }
+
