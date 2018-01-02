@@ -109,6 +109,107 @@ Matrix<T>::~Matrix()
 {
 }
 
+template <class T> class Vector : public Matrix<T>
+{
+private:
+	int l1 = 1;
+	int l2;
+	
+
+public:
+	T ** vectDyn;
+	void vect_vect(Vector<T> vect1, Vector<T> Vect2, Vector<T> VectRes);
+	Vector(T **Vector1, int g1);
+	Vector(int r2);
+	Vector();
+	~Vector();
+};
+
+template <typename T>
+Vector<T>::~Vector()
+{
+}
+template <typename T>
+Vector<T>::Vector()
+{
+	cout << "Enter vector length ";
+	cin >> l2;
+	vectDyn = new T *[1];
+	for (int i = 0; i <1; i++)
+	{
+		vectDyn[i] = new T[l2];
+
+	}
+
+	for (int i = 0; i<1; i++)
+	{
+		for (int j = 0; j < l2; j++) {
+			vectDyn[i][j] = 0;
+		}
+	}
+}
+
+template <typename T>
+Vector<T>::Vector(T **Vector1, int g1)
+{
+	l2 = g1;
+	vectDyn = new T *[l1];
+	for (int i = 0; i <1; i++)
+	{
+		vectDyn[i] = new T[l2];
+
+	}
+
+	for (int i = 0; i<1; i++)
+	{
+		for (int j = 0; j < g1; j++) {
+			vectDyn[i][j] = Vector1[i][j];
+		}
+	}
+}
+
+template <typename T>
+Vector<T>::Vector( int r2)
+{
+	l1 = 1;
+	l2 = r2;
+	vectDyn = new T *[1];
+	for (int i = 0; i < l1; i++)
+	{
+		vectDyn[i] = new T [l2];
+
+	}
+
+	for (int i = 0; i < l1; i++) {
+		for (int j = 0; j < l2; j++)
+		{
+			vectDyn[i][j] = 0;
+		}
+	}
+}
+
+template <typename T>
+void Vector<T>::vect_vect(Vector<T> vect1, Vector<T> Vect2, Vector<T> VectRes)
+{
+
+	int g1 = vect1.l2;
+	int g2 = Vect2.l2;
+	if (g1 != 3 || g2 != 3) {  }
+	else
+	{
+		if (g1 == g2)
+		{
+			for (int i = 0; i < g1; i++)
+			{
+				VectRes.vectDyn[0][i] = vect1.vectDyn[0][(i + 1) % 3] * Vect2.vectDyn[0][(i + 2) % 3] - vect1.vectDyn[0][(i + 2) % 3] * Vect2.vectDyn[0][(i + 2) % 3];
+
+			}
+		}
+	
+	}
+	
+}
+
 template <typename T>
 void Matrix<T>::matrix_umnozh(Matrix <T> matrix1, Matrix <T> matrix2, Matrix<T> matrix3)
 	{
@@ -175,6 +276,7 @@ void Matrix<T>::matrix_vych(Matrix<T>  matrix1, Matrix <T> matrix2, Matrix<T> ma
 			}
 		}
 }
+
 
 template <typename T>
 void Matrix<T>::vyvod_matr( Matrix <T> matrix3)
